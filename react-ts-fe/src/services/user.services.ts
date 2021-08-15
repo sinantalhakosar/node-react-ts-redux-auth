@@ -2,14 +2,13 @@ import { localURL } from '../constants/url.constants';
 import { UserProps } from '../types/user.types';
 
 export const login = ({username, password}: UserProps) => {
-    console.log('geldi')
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
     };
 
-    return fetch(`${localURL}/api/themeA/`, requestOptions)
+    return fetch(`${localURL}/login`, requestOptions)
         .then(handleResponse)
         .then(user => {
             // store user details and jwt token in local storage to keep user logged in between page refreshes
